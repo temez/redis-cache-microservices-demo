@@ -1,0 +1,5 @@
+logging:
+  level:
+    dev.temez.demo.service.gateway: debug
+  file:
+    name: ./logs/${spring.application.name:unknown-service}.log

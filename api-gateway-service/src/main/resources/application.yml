@@ -1,0 +1,36 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: api-gateway-service
+
+  main:
+    banner-mode: off
+
+  cloud:
+    gateway:
+      routes:
+        - id: user-service
+          uri: lb://user-service
+          predicates:
+            - Path=/users/**
+          filters:
+            - RewritePath=/users/(?<path>.*), /$\{path}
+        - id: user-service-openapi
+          uri: lb://user-service
+          predicates:
+            - Path=/user-service/v3/api-docs
+            - Method=GET
+
+  profiles:
+    active: dev, swagger
+
+springdoc:
+  swagger-ui:
+    enabled: false
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka

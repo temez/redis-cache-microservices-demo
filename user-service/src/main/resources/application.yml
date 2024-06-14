@@ -1,0 +1,20 @@
+server:
+  port: ${APPLICATION_PORT}
+
+spring:
+  application:
+    name: user-service
+
+  profiles:
+    active: dev, cache-redis, swagger, eureka
+
+  main:
+    banner-mode: off
+
+  cloud:
+    discovery:
+      enabled: false
+
+springdoc:
+  swagger-ui:
+    enabled: false

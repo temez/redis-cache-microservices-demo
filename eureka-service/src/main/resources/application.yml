@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-service
+
+  main:
+    banner-mode: off
+
+eureka:
+  dashboard:
+    enabled: true
+    path: /dashboard
+
+  instance:
+    prefer-ip-address: true
+
+  client:
+    fetch-registry: false
+    register-with-eureka: false

@@ -1,0 +1,45 @@
+//file:noinspection GroovyAssignabilityCheck
+plugins {
+    id 'idea'
+    id 'java-library'
+    id 'org.springframework.boot' version "$springBootVersion"
+    id 'io.spring.dependency-management' version "$springDependencyManagementPluginVersion"
+}
+
+subprojects {
+
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+
+    version = '0.0.0.1-SNAPSHOT'
+    group = 'dev.temez'
+
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+
+    dependencies {
+        annotationProcessor "org.projectlombok:lombok"
+
+        compileOnly "org.projectlombok:lombok"
+
+        implementation 'org.springframework.boot:spring-boot-starter'
+        implementation "org.jetbrains:annotations:$jetbrainsAnnotationsVersion"
+
+        testCompileOnly "org.projectlombok:lombok"
+
+        testImplementation "org.jetbrains:annotations:$jetbrainsAnnotationsVersion"
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    }
+
+    dependencyManagement {
+        imports {
+            mavenBom "org.springframework.cloud:spring-cloud-dependencies:$springCloudVersion"
+        }
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+}
