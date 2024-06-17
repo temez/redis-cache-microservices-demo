@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/v1/users/ping")
+@RequestMapping("/v1/ping")
 public class PingController {
 
   @Value("${server.port}")

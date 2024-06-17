@@ -1,7 +1,7 @@
 springdoc:
   swagger-ui:
     enabled: true
-    path: /user-service/swagger-ui.html
+    path: /swagger-ui.html
   api-docs:
     enabled: true
     path: /user-service/v3/api-docs

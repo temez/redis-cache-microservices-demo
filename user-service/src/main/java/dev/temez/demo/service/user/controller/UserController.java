@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.*;
 @CrossOrigin
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/v1/users")
+@RequestMapping("/v1")
 @FieldDefaults(makeFinal = true, level = AccessLevel.PRIVATE)
 public class UserController {
 
